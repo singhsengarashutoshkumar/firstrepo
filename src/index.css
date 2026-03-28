@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-slayer-red: #ff003c;
+  --color-slayer-purple: #7000ff;
+  --color-slayer-dark: #050505;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply transition-colors duration-500 bg-zinc-50 text-zinc-900 dark:bg-slayer-dark dark:text-zinc-100;
+  }
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+/* Futuristic Glows */
+.glow-red {
+  text-shadow: 0 0 10px rgba(255, 0, 60, 0.5), 0 0 20px rgba(255, 0, 60, 0.3);
+}
+
+.glow-purple {
+  text-shadow: 0 0 10px rgba(112, 0, 255, 0.5), 0 0 20px rgba(112, 0, 255, 0.3);
+}
+
+/* Demon Slayer Pattern Overlay */
+.pattern-bg {
+  background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Glassmorphism */
+.glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/10;
+}
+
+/* Minimalist scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slayer-red/50 rounded-full;
+}
